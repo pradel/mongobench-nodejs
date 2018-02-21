@@ -1,0 +1,22 @@
+{
+  "name": "mongobench-nodejs",
+  "private": true,
+  "scripts": {
+    "start": "node src/index.js",
+    "prettier": "prettier 'src/**/*.js' README.md --write"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "benchmark": "^2.1.4",
+    "mongodb": "^3.0.2",
+    "mongolass": "^4.1.3",
+    "mongoose": "^5.0.6"
+  },
+  "devDependencies": {
+    "prettier": "^1.10.2"
+  }
+}
