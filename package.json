@@ -2,7 +2,8 @@
   "name": "mongobench-nodejs",
   "private": true,
   "scripts": {
-    "prettier": "prettier 'src/**/*.js' README.md --write"
+    "start": "node tests/index.js",
+    "prettier": "prettier 'tests/**/*.js' README.md --write"
   },
   "prettier": {
     "singleQuote": true,
