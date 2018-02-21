@@ -17,7 +17,7 @@ const test = () => {
     suite.add('deleteOne - mongoose', {
       defer: true,
       fn: async deferred => {
-        await UserMongoose.deleteOne({});
+        await UserMongoose.deleteOne({}).exec();
         deferred.resolve();
       },
     });
@@ -25,7 +25,7 @@ const test = () => {
     suite.add('deleteOne - mongolass', {
       defer: true,
       fn: async deferred => {
-        await UserMongolass.deleteOne({});
+        await UserMongolass.deleteOne({}).exec();
         deferred.resolve();
       },
     });
@@ -41,7 +41,7 @@ const test = () => {
     suite.add('deleteMany - mongoose', {
       defer: true,
       fn: async deferred => {
-        await UserMongoose.deleteMany({});
+        await UserMongoose.deleteMany({}).exec();
         deferred.resolve();
       },
     });
@@ -49,7 +49,7 @@ const test = () => {
     suite.add('deleteMany - mongolass', {
       defer: true,
       fn: async deferred => {
-        await UserMongolass.deleteMany({});
+        await UserMongolass.deleteMany({}).exec();
         deferred.resolve();
       },
     });
