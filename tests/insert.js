@@ -1,15 +1,18 @@
 const Benchmark = require('benchmark');
 const mongoose = require('mongoose');
+const mongorito = require('mongorito');
 const { display, setup, dropDatabase, close } = require('./utils');
 
 const test = () => {
   return new Promise(async resolve => {
     const suite = new Benchmark.Suite();
-    const { mongolass, native } = await setup();
+    const { mongolass, native, mongoritoDb } = await setup();
     const UserMongoose = mongoose.model('UserInsert', { name: String });
     const UserMongolass = mongolass.model('UserInsert', {
       name: { type: 'string' },
     });
+    class UserMongorito extends mongorito.Model {}
+    mongoritoDb.register(UserMongorito);
     const UserNative = native.collection('UserInsert');
 
     await dropDatabase();
@@ -34,6 +37,15 @@ const test = () => {
       defer: true,
       fn: async deferred => {
         await UserMongolass.insert({ name: 'Name' });
+        deferred.resolve();
+      },
+    });
+
+    suite.add('insert - mongorito', {
+      defer: true,
+      fn: async deferred => {
+        const user = new UserMongorito({ name: 'Name' });
+        await user.save();
         deferred.resolve();
       },
     });

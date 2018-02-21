@@ -19,25 +19,34 @@ Tests available:
 MacBook Pro (13-inch, 2017) 16GB 3,1GHz:
 
 ```
-insert - mongoose x 1,563 ops/sec ±10.04% (66 runs sampled)
-save method - mongoose x 2,069 ops/sec ±4.41% (71 runs sampled)
-insert - mongolass x 2,735 ops/sec ±5.01% (68 runs sampled)
-insert - native x 3,601 ops/sec ±7.62% (66 runs sampled)
+insert - mongoose x 1,691 ops/sec ±6.94% (72 runs sampled)
+save method - mongoose x 1,851 ops/sec ±10.76% (65 runs sampled)
+insert - mongolass x 2,732 ops/sec ±8.33% (71 runs sampled)
+insert - mongorito x 3,264 ops/sec ±3.84% (72 runs sampled)
+insert - native x 4,909 ops/sec ±2.84% (75 runs sampled)
 Fastest is insert - native
+Slowest is insert - mongoose
 
-deleteOne - mongoose x 4,002 ops/sec ±20.75% (70 runs sampled)
-deleteOne - mongolass x 4,196 ops/sec ±2.67% (76 runs sampled)
-deleteOne - native x 5,804 ops/sec ±2.81% (73 runs sampled)
-deleteMany - mongoose x 5,239 ops/sec ±4.51% (74 runs sampled)
-deleteMany - mongolass x 3,955 ops/sec ±4.87% (75 runs sampled)
-deleteMany - native x 6,036 ops/sec ±2.47% (76 runs sampled)
-Fastest is deleteMany - native
+deleteOne - mongoose x 5,938 ops/sec ±3.05% (72 runs sampled)
+deleteOne - mongolass x 4,461 ops/sec ±2.75% (71 runs sampled)
+deleteOne - native x 6,655 ops/sec ±2.37% (78 runs sampled)
+deleteMany - mongoose x 6,262 ops/sec ±1.72% (76 runs sampled)
+deleteMany - mongolass x 4,252 ops/sec ±2.80% (76 runs sampled)
+deleteMany - mongorito x 266 ops/sec ±172.80% (72 runs sampled)
+deleteMany - native x 6,242 ops/sec ±2.59% (77 runs sampled)
+Fastest is deleteOne - native
+Slowest is deleteMany - mongorito
 
-findOne - mongoose x 3,939 ops/sec ±3.53% (71 runs sampled)
-findOne - mongolass x 3,541 ops/sec ±2.38% (76 runs sampled)
-findOne - native x 4,980 ops/sec ±2.55% (78 runs sampled)
-find - mongoose x 127 ops/sec ±2.24% (77 runs sampled)
-find - mongolass x 241 ops/sec ±7.35% (59 runs sampled)
-find - native x 270 ops/sec ±5.81% (61 runs sampled)
+findOne - mongoose x 3,934 ops/sec ±4.85% (75 runs sampled)
+findOne lean - mongoose x 4,962 ops/sec ±1.61% (78 runs sampled)
+findOne - mongolass x 3,654 ops/sec ±4.43% (73 runs sampled)
+findOne - mongorito x 3,427 ops/sec ±3.42% (74 runs sampled)
+findOne - native x 5,435 ops/sec ±2.49% (75 runs sampled)
+find - mongoose x 129 ops/sec ±4.21% (78 runs sampled)
+find lean - mongoose x 310 ops/sec ±2.62% (72 runs sampled)
+find - mongolass x 238 ops/sec ±7.34% (60 runs sampled)
+find - mongorito x 43.49 ops/sec ±1.88% (69 runs sampled)
+find - native x 244 ops/sec ±6.88% (60 runs sampled)
 Fastest is findOne - native
+Slowest is find - mongorito
 ```

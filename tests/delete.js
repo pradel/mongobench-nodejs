@@ -1,15 +1,18 @@
 const Benchmark = require('benchmark');
 const mongoose = require('mongoose');
+const mongorito = require('mongorito');
 const { display, setup, dropDatabase, close } = require('./utils');
 
 const test = () => {
   return new Promise(async resolve => {
     const suite = new Benchmark.Suite();
-    const { mongolass, native } = await setup();
+    const { mongolass, native, mongoritoDb } = await setup();
     const UserMongoose = mongoose.model('UserDelete', { name: String });
     const UserMongolass = mongolass.model('UserDelete', {
       name: { type: 'string' },
     });
+    class UserMongorito extends mongorito.Model {}
+    mongoritoDb.register(UserMongorito);
     const UserNative = native.collection('UserDelete');
 
     await dropDatabase();
@@ -50,6 +53,14 @@ const test = () => {
       defer: true,
       fn: async deferred => {
         await UserMongolass.deleteMany({}).exec();
+        deferred.resolve();
+      },
+    });
+
+    suite.add('deleteMany - mongorito', {
+      defer: true,
+      fn: async deferred => {
+        await UserMongorito.remove({});
         deferred.resolve();
       },
     });
